@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408529345254",
+    "project_id": "re-note-cbeb0",
+    "storage_bucket": "re-note-cbeb0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408529345254:android:c9a9f3d83dfddd137f3927",
+        "android_client_info": {
+          "package_name": "com.example.re_note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOQBkHpHHfj-jP6q_sTxpEMU1BSt8ED6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

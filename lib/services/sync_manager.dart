@@ -61,10 +61,8 @@ class SyncManager extends ChangeNotifier {
 
   Future<void> processFullQueue() async {
     if (_status.isSyncing) return;
-    if (authService.userId == null) {
-      _addLog('Waiting for authentication...');
-      return;
-    }
+    // Auth-gated: do nothing when logged out.
+    if (authService.userId == null) return;
 
     _status = _status.copyWith(syncErrorMessage: null); // Reset errors
 

@@ -11,7 +11,7 @@ import 'package:re_note/services/firestore_service.dart';
 import 'package:re_note/services/global_services.dart';
 import 'package:re_note/services/sync_manager.dart';
 import 'package:re_note/services/auth_service.dart';
-import 'package:re_note/ui/home_screen.dart';
+import 'package:re_note/ui/main_screen.dart';
 import 'package:re_note/utils/app_theme.dart';
 
 void main() async {
@@ -29,7 +29,6 @@ void main() async {
   final actionBox = await Hive.openBox<action_model.SyncAction>('actions');
 
   final authService = AuthService();
-  await authService.signInAnonymously();
 
   final firestoreService = FirestoreService(authService: authService);
 
@@ -50,7 +49,7 @@ void main() async {
             syncManager: syncManager,
             firestoreService: firestoreService,
             authService: authService,
-          )..fetchNotesFromServer(),
+          ),
         ),
       ],
       child: const MyApp(),
@@ -67,7 +66,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: GlobalServices.appName,
       theme: AppTheme.darkTheme,
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }

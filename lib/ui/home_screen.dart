@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:re_note/providers/sync_provider.dart';
+import 'package:re_note/services/global_services.dart';
 import 'package:re_note/ui/note_card.dart';
 import 'package:re_note/ui/note_editor.dart';
 
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Keepsy')),
+      appBar: AppBar(title: const Text(GlobalServices.appName)),
       body: Column(
         children: [
           if (isSyncing) const LinearProgressIndicator(),

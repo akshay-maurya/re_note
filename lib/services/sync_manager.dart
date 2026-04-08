@@ -5,10 +5,12 @@ import 'package:re_note/models/sync_state.dart';
 import 'package:re_note/models/sync_action.dart' as action_model;
 import 'package:re_note/repositories/sync_repository.dart';
 import 'package:re_note/services/firestore_service.dart';
+import 'package:re_note/services/auth_service.dart';
 
 class SyncManager extends ChangeNotifier {
   final SyncRepository repository;
   final FirestoreService firestoreService;
+  final AuthService authService;
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
 
   SyncState _status = SyncState(pendingCount: 0, isSyncing: false, logs: []);
@@ -17,7 +19,11 @@ class SyncManager extends ChangeNotifier {
   Timer? _retryTimer;
   int _retryCount = 0;
 
-  SyncManager({required this.repository, required this.firestoreService}) {
+  SyncManager({
+    required this.repository,
+    required this.firestoreService,
+    required this.authService,
+  }) {
     _updatePendingCount();
     _initConnectivityListener();
   }
@@ -55,6 +61,10 @@ class SyncManager extends ChangeNotifier {
 
   Future<void> processFullQueue() async {
     if (_status.isSyncing) return;
+    if (authService.userId == null) {
+      _addLog('Waiting for authentication...');
+      return;
+    }
 
     _status = _status.copyWith(syncErrorMessage: null); // Reset errors
 

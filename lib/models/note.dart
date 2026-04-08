@@ -59,4 +59,15 @@ class Note extends HiveObject {
       'isDeleted': isDeleted,
     };
   }
+
+  factory Note.fromMap(Map<String, dynamic> map) {
+    return Note(
+      id: map['id'] as String,
+      title: map['title'] as String,
+      content: map['content'] as String,
+      isSynced: map['isSynced'] as bool? ?? false,
+      updatedAt: DateTime.parse(map['updatedAt'] as String).toLocal(),
+      isDeleted: map['isDeleted'] as bool? ?? false,
+    );
+  }
 }

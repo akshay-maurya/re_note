@@ -8,11 +8,11 @@ import 'package:re_note/models/sync_action.dart' as action_model;
 import 'package:re_note/providers/sync_provider.dart';
 import 'package:re_note/repositories/sync_repository.dart';
 import 'package:re_note/services/firestore_service.dart';
+import 'package:re_note/services/global_services.dart';
 import 'package:re_note/services/sync_manager.dart';
+import 'package:re_note/services/auth_service.dart';
 import 'package:re_note/ui/home_screen.dart';
-// Note: Normally we'd initialize Firebase here via Firebase.initializeApp().
-// But since the setup might fail if Firebase isn't fully configured with google-services.json locally,
-// leaving it as a general UI provider setup for now.
+import 'package:re_note/utils/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,13 +28,17 @@ void main() async {
   final noteBox = await Hive.openBox<Note>('notes');
   final actionBox = await Hive.openBox<action_model.SyncAction>('actions');
 
-  final firestoreService = FirestoreService();
+  final authService = AuthService();
+  await authService.signInAnonymously();
+
+  final firestoreService = FirestoreService(authService: authService);
 
   final repository = SyncRepository(noteBox: noteBox, actionBox: actionBox);
 
   final syncManager = SyncManager(
     repository: repository,
     firestoreService: firestoreService,
+    authService: authService,
   );
 
   runApp(
@@ -45,7 +49,8 @@ void main() async {
             repository: repository,
             syncManager: syncManager,
             firestoreService: firestoreService,
-          ),
+            authService: authService,
+          )..fetchNotesFromServer(),
         ),
       ],
       child: const MyApp(),
@@ -60,14 +65,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Keepsy - Flutter Offline Sync',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.dark,
-        ),
-        useMaterial3: true,
-      ),
+      title: GlobalServices.appName,
+      theme: AppTheme.darkTheme,
       home: const HomeScreen(),
     );
   }

@@ -1,13 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:re_note/models/note.dart';
 import 'package:re_note/models/sync_action.dart' as action_model;
+import 'package:re_note/services/auth_service.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final AuthService authService;
 
-  // Since this is a 1-day task, assume a single user.
-  // Using a 'Guest' collection.
-  final String userId = 'Guest';
+  FirestoreService({required this.authService});
+
+  String get userId {
+    final uid = authService.userId;
+    if (uid == null) {
+      throw Exception('User is not authenticated');
+    }
+    return uid;
+  }
 
   Future<void> upsertNote(Note note) async {
     // Idempotency constraint: Uses Note's UUID.

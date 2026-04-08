@@ -6,7 +6,8 @@ Offline-first sync queue note app
 
 ## Getting Started
 
-Follow these steps to get a local copy of the project up and running.
+Follow these steps to get a local copy of the project up and running.  
+You can also download the apk [click here to download the apk](https://drive.usercontent.google.com/download?id=1kpq5QCxY0r9CF7sBAAetsJVlXZwfaNBv&export=download)
 
 ### Prerequisites
 

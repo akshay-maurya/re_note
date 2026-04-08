@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fb08e6-bfa5-4e8d-ade2-a633b46f2b9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/screenshots/home_ss.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/sync_queue_ss.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/re_note.iml" beforeDir="false" afterPath="$PROJECT_DIR$/re_note.iml" afterDir="false" />
+    <list default="true" id="c6fb08e6-bfa5-4e8d-ade2-a633b46f2b9c" name="Changes" comment="added: readme and screenshots of app ui">
+      <change beforePath="$PROJECT_DIR$/lib/providers/email_auth_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/email_auth_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/sync_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/sync_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/global_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/global_services.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/cloud_sync_tab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/cloud_sync_tab.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/email_sign_in_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/email_sign_in_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/main_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/note_tile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/note_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/notes_tab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/notes_tab.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/app_theme.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +100,15 @@
       <option name="presentableId" value="Default" />
       <updated>1775641728372</updated>
     </task>
+    <task id="LOCAL-00001" summary="added: readme and screenshots of app ui">
+      <option name="closed" value="true" />
+      <created>1775645511472</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775645511472</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -102,5 +116,9 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added: readme and screenshots of app ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="added: readme and screenshots of app ui" />
   </component>
 </project>

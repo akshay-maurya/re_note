@@ -5,11 +5,7 @@ class NoteTile extends StatelessWidget {
   final Note note;
   final VoidCallback onTap;
 
-  const NoteTile({
-    super.key,
-    required this.note,
-    required this.onTap,
-  });
+  const NoteTile({super.key, required this.note, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

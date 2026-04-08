@@ -62,8 +62,10 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
 
         if (!scopedContext.mounted) return;
         if (shouldRegister == true) {
-          final registerResult =
-              await authUi.register(email: email, password: password);
+          final registerResult = await authUi.register(
+            email: email,
+            password: password,
+          );
           if (!scopedContext.mounted) return;
           if (registerResult is EmailAuthSuccess) {
             navigator.pop();
@@ -90,27 +92,21 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
           final errorMessage = authUi.errorMessage;
 
           return Scaffold(
-            appBar: AppBar(
-              title: const Text('Sign in'),
-            ),
+            appBar: AppBar(title: const Text('Sign in')),
             body: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   TextField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                    ),
+                    decoration: const InputDecoration(labelText: 'Email'),
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: 12),
                   TextField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                    ),
+                    decoration: const InputDecoration(labelText: 'Password'),
                     obscureText: true,
                   ),
                   const SizedBox(height: 20),
@@ -126,8 +122,9 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed:
-                          authUi.isLoading ? null : () => _signIn(context),
+                      onPressed: authUi.isLoading
+                          ? null
+                          : () => _signIn(context),
                       child: authUi.isLoading
                           ? const SizedBox(
                               width: 18,
@@ -146,4 +143,3 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
     );
   }
 }
-

@@ -49,10 +49,9 @@ class _NotesTabState extends State<NotesTab> {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             margin: const EdgeInsets.only(top: 8),
-            color: Theme.of(context)
-                .colorScheme
-                .surfaceContainerHighest
-                .withAlpha(140),
+            color: Theme.of(
+              context,
+            ).colorScheme.surfaceContainerHighest.withAlpha(140),
             child: Row(
               children: [
                 const Icon(Icons.cloud_off, size: 22),
@@ -76,15 +75,15 @@ class _NotesTabState extends State<NotesTab> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.lightbulb_outline,
-                          size: 64, color: Colors.grey),
+                      Icon(
+                        Icons.lightbulb_outline,
+                        size: 64,
+                        color: Colors.grey,
+                      ),
                       SizedBox(height: 16),
                       Text(
                         'No notes yet',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                        ),
+                        style: TextStyle(color: Colors.grey, fontSize: 18),
                       ),
                     ],
                   ),
@@ -104,8 +103,7 @@ class _NotesTabState extends State<NotesTab> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  NoteEditor(note: note),
+                              builder: (context) => NoteEditor(note: note),
                             ),
                           );
                         },
@@ -118,4 +116,3 @@ class _NotesTabState extends State<NotesTab> {
     );
   }
 }
-

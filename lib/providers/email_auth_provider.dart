@@ -88,4 +88,3 @@ class EmailAuthProvider extends ChangeNotifier {
     }
   }
 }
-

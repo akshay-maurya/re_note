@@ -188,7 +188,8 @@ class SyncProvider extends ChangeNotifier {
           chosen = local.copyWith(isSynced: true);
           if (!local.isDeleted) shouldWriteRemote = true;
         } else if (local != null && remote != null) {
-          final localWins = local.updatedAt.isAfter(remote.updatedAt) ||
+          final localWins =
+              local.updatedAt.isAfter(remote.updatedAt) ||
               local.updatedAt.isAtSameMomentAs(remote.updatedAt);
 
           if (localWins) {

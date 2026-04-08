@@ -48,16 +48,13 @@ class CloudSyncTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Signed in as',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
+          Text('Signed in as', style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(height: 8),
           Text(
             provider.userEmail ?? 'Unknown user',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 12),
           if (provider.isReconciling)
@@ -109,4 +106,3 @@ class CloudSyncTab extends StatelessWidget {
     );
   }
 }
-

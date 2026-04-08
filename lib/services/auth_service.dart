@@ -12,26 +12,11 @@ class AuthService {
 
   Stream<User?> authStateChanges() => _auth.authStateChanges();
 
-  Future<void> signInAnonymously() async {
-    try {
-      await _auth.signInAnonymously();
-    } catch (e) {
-      // Kept for backwards compatibility; the app now starts signed-out.
-      if (kDebugMode) {
-        // ignore: avoid_print
-        print('Failed to sign in anonymously: $e');
-      }
-    }
-  }
-
   Future<void> signInWithEmail({
     required String email,
     required String password,
   }) async {
-    await _auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    await _auth.signInWithEmailAndPassword(email: email, password: password);
   }
 
   Future<void> registerWithEmail({

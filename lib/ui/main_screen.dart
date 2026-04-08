@@ -17,25 +17,18 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _selectedIndex == 0 ? 'Notes' : 'Sync/Account',
-        ),
+        title: Text(_selectedIndex == 0 ? 'Notes' : 'Sync/Account'),
       ),
       body: IndexedStack(
         index: _selectedIndex,
-        children: const [
-          NotesTab(),
-          CloudSyncTab(),
-        ],
+        children: const [NotesTab(), CloudSyncTab()],
       ),
       floatingActionButton: _selectedIndex == 0
           ? FloatingActionButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const NoteEditor(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const NoteEditor()),
                 );
               },
               child: const Icon(Icons.add),
@@ -45,10 +38,7 @@ class _MainScreenState extends State<MainScreen> {
         currentIndex: _selectedIndex,
         onTap: (value) => setState(() => _selectedIndex = value),
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notes),
-            label: 'Notes',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.notes), label: 'Notes'),
           BottomNavigationBarItem(
             icon: Icon(Icons.cloud_upload),
             label: 'Sync/Account',
@@ -58,4 +48,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
